@@ -11,6 +11,6 @@ services:
       - ./data/static/:/srv/django/static/
       - ./data/media/:/srv/django/media/
   uwsgi_srv:
-    image: emarcs/django:latest
+    image: emarcs/django:py2
     volumes:
       - ./data:/srv/django/app

@@ -1,8 +1,13 @@
-FROM nginx:latest
+FROM emarcs/debian-minit:jessie
 
 MAINTAINER Marco Pompili <marcs.pompili@gmail.com>
 
-ENV NGINX_HOST localhost
+RUN apt-get -q -q update && \
+    apt-get -y install gettext-base nginx
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ENV NGINX_HOST 0.0.0.0
 ENV NGINX_PORT 80
 ENV DJANGO_STATIC_URL /static/
 ENV DJANGO_STATIC_PATH /srv/django/static/
@@ -18,6 +23,5 @@ VOLUME ["/srv/django/static/", "/srv/django/media/"]
 
 COPY uwsgi_params /etc/nginx/
 COPY default.template /etc/nginx/conf.d/
-COPY entrypoint.sh /usr/local/bin/
 
-ENTRYPOINT ["entrypoint.sh"]
+COPY startup /etc/minit/
