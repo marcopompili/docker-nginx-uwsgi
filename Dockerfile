@@ -1,6 +1,6 @@
 FROM emarcs/debian-minit:jessie
 
-MAINTAINER Marco Pompili <marcs.pompili@gmail.com>
+MAINTAINER Marco Pompili "docker@emarcs.org"
 
 RUN apt-get -q -q update && \
     apt-get -y install gettext-base nginx
