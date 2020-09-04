@@ -1,5 +1,6 @@
 .gitignore
 data
 data/
+docker-compose.yml
 LICENSE
 README.md

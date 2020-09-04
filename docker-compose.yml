@@ -1,7 +1,8 @@
-version: '2'
+version: '3'
 
 services:
   nginx_srv:
+    container_name: nginx-uwsgi-test
     image: emarcs/nginx-uwsgi
     ports:
       - 8081:80
@@ -11,6 +12,6 @@ services:
       - ./data/static/:/srv/django/static/
       - ./data/media/:/srv/django/media/
   uwsgi_srv:
-    image: emarcs/django:py2
-    volumes:
+     image: emarcs/django
+     volumes:
       - ./data:/srv/django/app

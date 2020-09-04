@@ -1,11 +1,7 @@
-FROM emarcs/debian-minit:jessie
+FROM nginx:stable
 
-LABEL Marco Pompili "docker@mg.odd.red"
-
-RUN apt-get -q -q update && \
-    apt-get -y install gettext-base nginx
-
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+LABEL author Marco Pompili
+LABEL email "docker@mg.odd.red"
 
 ENV NGINX_HOST 0.0.0.0
 ENV NGINX_PORT 80
@@ -26,6 +22,8 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log
 
 COPY uwsgi_params /etc/nginx/
-COPY default.template /etc/nginx/conf.d/
+COPY default.template /etc/nginx/
 
-COPY startup /etc/minit/
+COPY startup /usr/local/bin/startup
+
+CMD [ "/usr/local/bin/startup" ]
