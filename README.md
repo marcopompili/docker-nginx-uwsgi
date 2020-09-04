@@ -1,6 +1,6 @@
 # docker-nginx-uwsgi
 
-[![](https://badge.imagelayers.io/emarcs/nginx-uwsgi:latest.svg)](https://imagelayers.io/?images=emarcs/nginx-uwsgi:latest 'Get your own badge on imagelayers.io')
+![](https://img.shields.io/docker/cloud/build/emarcs/nginx-uwsgi) ![](https://img.shields.io/microbadger/layers/emarcs/nginx-uwsgi/latest) ![](https://img.shields.io/docker/image-size/emarcs/nginx-uwsgi/latest) [![](https://img.shields.io/docker/v/emarcs/nginx-uwsgi/latest)](https://hub.docker.com/r/emarcs/nginx-uwsgi)
 
 A Docker image for an [Nginx](http://nginx.org/en/) proxy server
 for serving [Django](https://www.djangoproject.com/) requests
